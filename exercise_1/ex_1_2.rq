@@ -1,0 +1,52 @@
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?university (SAMPLE(?cityName) as ?City) (COUNT(?pministers) as ?PrimeMinisters) {
+    {
+        ?university a dbo:University .
+        ?university dbo:country dbr:Greece .
+        ?university dbp:city ?city .
+        ?city dbp:name ?cityName .
+    } UNION {
+        SELECT *
+        {
+            {
+                ?ministerList rdfs:label "Prime Ministers of Greece"@en .
+                ?pministers dbo:wikiPageWikiLink ?ministerList .
+            }
+            OPTIONAL {
+                ?pministers dbo:almaMater ?almaMater .
+                ?almaMater a dbo:University .
+                ?almaMater dbo:country dbr:Greece .
+                BIND (?almaMater as ?university)
+                ?almaMater dbp:city ?almaMaterCity .
+                ?almaMaterCity dbp:name ?almaMaterCityName .
+                BIND(?almaMaterCityName as ?cityName)
+
+            }
+            OPTIONAL {
+                ?pministers dbo:education ?education .
+                ?education a dbo:University .
+                ?education dbo:country dbr:Greece .
+                BIND (?education as ?university)
+                ?education dbp:city ?educationCity .
+                ?educationCity dbp:name ?educationCityName .
+                BIND(?educationCityName as ?cityName)
+            }
+            OPTIONAL {
+                ?pministers dbo:wikiPageWikiLink ?wikiEducation .
+                ?wikiEducation a dbo:University .
+                ?wikiEducation dbo:country dbr:Greece .
+                BIND (?wikiEducation as ?university)
+                ?wikiEducation dbp:city ?wikiEducationCity .
+                ?wikiEducationCity dbp:name ?wikiEducationCityName .
+                BIND(?wikiEducationCityName as ?cityName)
+            }
+            FILTER (BOUND(?university))
+        }
+    }
+}
+GROUP BY ?university
+ORDER BY DESC(?PrimeMinisters)

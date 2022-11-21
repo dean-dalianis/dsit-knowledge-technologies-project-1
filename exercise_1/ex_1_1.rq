@@ -1,0 +1,18 @@
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+
+SELECT ?grapeName (GROUP_CONCAT(DISTINCT ?regionName;separator=", ") AS ?Region)
+WHERE {
+    {
+        ?grape dbo:wikiPageWikiLink dbr:Category:Grape_varieties_of_Greece .
+        ?grape ?p dbr:Greece .
+        ?grape dbp:name ?grapeName .
+        ?grape dbo:wikiPageWikiLink ?region .
+        ?region rdf:type dbo:Location .
+        ?region ?p dbr:Greece .
+        ?region dbp:name ?regionName .
+    }
+}
+GROUP BY ?grapeName

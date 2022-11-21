@@ -1,0 +1,1 @@
+Find all subclasses of class CollegeOrUniversity (note that http://schema.org/ prefers to use the equivalent term “type” for “class”).

@@ -1,0 +1,6 @@
+Find all properties defined for the class CollegeOrUniversity together with all the properties inherited by its superclasses.
+
+http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+http://www.w3.org/2000/01/rdf-schema#subClassOf
+http://www.w3.org/2000/01/rdf-schema#comment
+http://www.w3.org/2000/01/rdf-schema#label

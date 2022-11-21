@@ -1,0 +1,7 @@
+Find all the superclasses of class CollegeOrUniversity.
+
+CivicStructure
+Organization
+Place
+Thing
+EducationalOrganization

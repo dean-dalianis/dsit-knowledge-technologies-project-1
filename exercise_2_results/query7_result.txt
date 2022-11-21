@@ -1,0 +1,16 @@
+Check the consistency of the dataset regarding stated populations: the sum of the
+populations of all administrative units A of level L must be equal to the population of the
+administrative unit B of level L+1 to which all administrative units A belong to. (You
+have to write one query only.)
+
+Εντοπίστηκε αναντιστοιχία πληθυσμού
+Δήμος: ΔΗΜΟΣ ΗΡΑΚΛΕΙΟΥ (45926)
+Πληθυσμός για Δημοτική_Ενότητα που ανήκουν στον ΔήμοςΔΗΜΟΣ ΗΡΑΚΛΕΙΟΥ: 178287
+Διαφορά: -132361
+Δημοτική_Ενότητα που ανήκουν στον Δήμος: ΔΗΜΟΣ ΗΡΑΚΛΕΙΟΥ
+  ΔHMOTIKH ΕNOTHTA ΗΡΑΚΛΕΙΟΥ (45926)
+  ΔHMOTIKH ΕNOTHTA ΓΟΡΓΟΛΑΪΝΗ (3171)
+  ΔHMOTIKH ΕNOTHTA ΗΡΑΚΛΕΙΟΥ (121493)
+  ΔHMOTIKH ΕNOTHTA ΝΕΑΣ ΑΛΙΚΑΡΝΑΣΣΟΥ (2075)
+  ΔHMOTIKH ΕNOTHTA ΠΑΛΙΑΝΗΣ (2404)
+  ΔHMOTIKH ΕNOTHTA ΤΕΜΕΝΟΥΣ (3218)
